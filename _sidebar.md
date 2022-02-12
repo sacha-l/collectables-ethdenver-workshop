@@ -1,33 +1,21 @@
 <!-- docs/_sidebar.md -->
 
-* [Home](/)
-* [Getting Started](0/)
-	* [Presentation](0/presentation.md)
+* [Welcome](/)
+* [Intro](0/substrate.md)
+	* [A little prelude](0/prelude.md)
 
-* [Using the Substrate Playground](playground/)
-	* [About](playground/intro.md)
-	* [Sessions](playground/sessions.md)
-	* [Start Node](playground/start-node.md)
-	* [Interact](playground/interact.md)
-	* [Common](playground/common.md)
+* [Runtime engineering](1/)
+	* [Specs](1/1-specs.md)
+	* [Add a new pallet](1/2-add-a-pallet.md)
+	* [Structs and types](1/3-structs-and-types.md)
+	* [Storage](1/4-add-storage.md)
 
-* [Writing a Module](2/)
-	* [Presentation](2/presentation.md)
-	* [Starting Point](2/starting-point.md)
-	* [Add Events](2/add-events.md)
-	* [Add Storage Item](2/add-storage.md)
-	* [Create Claim](2/create-claim.md)
-	* [Revoke Claim](2/revoke-claim.md)
-	* [Final Runtime](2/final.md)
+* [Dispatchable calls](1/)
+	* [Best practices](1/5-best-practices.md)
+	* [create_kitty](1/6-create-kitty.md)
+	* [transfer](1/7-transfer.md)
+	* [breed_kitty](1/8-breed-kitty.md)
 
-* [Upgrading Your Runtime](3/)
-	* [Make a Claim](3/make-claim.md)
+* [Launch](1/9-launch.md)
 
-* [Using Traits](4/)
-	* [Currency](4/currency.md)
-	* [Balances Module](4/balances.md)
-	* [Configurable Traits](4/traits.md)
-	* [Configurable Constants](4/get.md)
-	* [Final Runtime](4/final.md)
-
-* [Notepad](notes.md)
+	
