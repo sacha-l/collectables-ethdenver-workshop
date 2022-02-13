@@ -1,10 +1,12 @@
-We'll be going through the "Build the Substrate Kitties Chain" tutorial which you can find [here](https://docs.substrate.io/tutorials/v3/kitties/pt1/). 
 
-For this workshop, we've sort of shortened things to keep things within our time slot. 
-The truth is, we have a lot to cover. 
+## Welcome to the Collectables Workshop! 
+
+This workshop was created for ETH Denver 2022 and is based on the [Kitties tutorial](https://docs.substrate.io/tutorials/v3/kitties/pt1/). 
+
+We have a lot to cover. 
 So let's get right to it!
 
-You'll learn:
+What you'll learn:
 
 * the basic patterns for building and running a Substrate node.
 * how to write a custom FRAME pallet and integrate it to your runtime.

@@ -17,7 +17,7 @@ We currently have:
 * `Sudo: pallet_sudo`: most basic on-chain goverance.
 * ⭐️ `TemplateModule: pallet_template`: an dummy pallet to make it easy to start hacking with.
 		
-# Customize the template pallet
+## Customize the template pallet
 
 No need to reinvent the wheel right? 
 Let's use the template pallet as a starting point!

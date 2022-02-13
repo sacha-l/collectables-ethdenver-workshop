@@ -29,7 +29,7 @@ pub struct Kitty<T: Config> {
 }
 ```
 
-#### ** Enable encode/decode stuff **
+#### ** Enable encode/decode **
 
 As FRAME runtime engineers, we're able to use special macros to ensure that the object we created can be encodable/decodable and will expose the correct metadata including information about the custom type. 
 

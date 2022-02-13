@@ -1,21 +1,20 @@
 <!-- docs/_sidebar.md -->
 
 * [Welcome](/)
-* [Intro](0/substrate.md)
-	* [A little prelude](0/prelude.md)
+* [Intro](collectables-workshop/substrate.md)
+* [Runtime engineering](collectables-workshop/0-runtime-engineering.md)
+	* [Specs](collectables-workshop/1-specs.md)
+	* [Add a new pallet](collectables-workshop/2-add-a-pallet.md)
+	* [Structs and types](collectables-workshop/3-structs-and-types.md)
+	* [Storage](collectables-workshop/4-add-storage.md)
 
-* [Runtime engineering](1/)
-	* [Specs](1/1-specs.md)
-	* [Add a new pallet](1/2-add-a-pallet.md)
-	* [Structs and types](1/3-structs-and-types.md)
-	* [Storage](1/4-add-storage.md)
+* [Dispatchable calls](collectables-workshop/5-best-practices.md)
+	* [create_kitty](collectables-workshop/6-create-kitty.md)
+	* [transfer](collectables-workshop/7-transfer.md)
+	* [breed_kitty](collectables-workshop/8-breed-kitty.md)
 
-* [Dispatchable calls](1/)
-	* [Best practices](1/5-best-practices.md)
-	* [create_kitty](1/6-create-kitty.md)
-	* [transfer](1/7-transfer.md)
-	* [breed_kitty](1/8-breed-kitty.md)
+* [Launch](collectables-workshop/9-launch.md)
+* [What's next?](collectables-workshop/10-whats-next.md)
 
-* [Launch](1/9-launch.md)
 
 	

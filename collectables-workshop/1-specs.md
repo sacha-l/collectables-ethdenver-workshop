@@ -1,6 +1,6 @@
 # What we're building
 
-The pallet we're building is based on the ERC721 standard.
+The pallet we're building is based on the [ERC721 standard](https://eips.ethereum.org/EIPS/eip-721).
 Here are some of the ERC721 features our pallet will have.
 
 From ERC721 interface:
@@ -19,4 +19,4 @@ Our pallet is pretty much analagous.
 But we're going to build a **specific type of NFT representing the DNA of a collectable Kitty.** 
 It'll show how we're able to build some NFT-like standard and tell a well known story around it, the CryptoKitties story. 
 With pallets,  we're able to customize and extend the logic of our NFT application in so many ways.. 
-Extra points to those of you who create the Bufficorn front-end for the chain we're building!
+Extra points to those of you who create the Bufficorn front-end for the chain we're building! 🦬🦄
