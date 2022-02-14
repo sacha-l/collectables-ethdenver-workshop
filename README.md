@@ -3,7 +3,7 @@
 
 This was created for the Substrate Workshop at ETH Denver 2022 and is based on Substrate's [Kitties tutorial](https://docs.substrate.io/tutorials/v3/kitties/pt1/). 
 
-In this workshop, you'll learn how to build a Substrate blockchain that creates and manages the ownership of NFT-like assets and allows you to interact with them.
+In this workshop, you'll learn how to build a standalone blockchain with Substrate that creates and manages the ownership of NFT-like assets and allows you to interact with them.
 
 We have a lot to cover. 
 So let's get right to it!

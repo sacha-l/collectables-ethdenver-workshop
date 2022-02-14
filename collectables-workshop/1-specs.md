@@ -3,7 +3,7 @@
 The pallet we're building is based on the well known [ERC721 standard](https://eips.ethereum.org/EIPS/eip-721).
 Our pallet is pretty much analagous.
 But we're going to build a **specific type of NFT representing the DNA of a collectable Kitty.** 
-It'll show how we're able to build some NFT-like standard and tell a well known story around it, the CryptoKitties story. 
+It'll show how we're able to build some NFT-like standard and tell a well known story around it: the Crypto Kitties story. 
 
 Here are some of the ERC721 features our pallet will have: 
 
@@ -26,7 +26,7 @@ Extra points to those of you who create the Bufficorn front-end for the chain we
 ## How our pallet's unique DNA works
 
 Our pallet will create a unique DNA that can be used to map features specific to some collectable rendered by an application-specifc front-end.
-DNA is represented by a `[u8; 16]` (an array of 16 bytes) that could look like this:
+DNA is represented by an array of 16 bytes (a `[u8; 16]`) that could look like this:
 
 `[52, 12, 44, 54, 52, 12, 44, 54, 52, 12, 44, 54, 52, 12, 44, 54]`
 
