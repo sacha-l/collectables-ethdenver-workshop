@@ -3,6 +3,12 @@
 * [Welcome](/)
 * [What's Substrate?](collectables-workshop/substrate.md)
 * [Runtime engineering](collectables-workshop/0-runtime-engineering.md)
+* [Rust]
+	* [Types](core/types.md)
+	* [Traits](core/traits.md)
+	* [Macros](core/macros.md)
+	* [Limits](core/limits.md)
+	* [Storage](core/storage.md)
 * [What we're building](collectables-workshop/1-specs.md)
 	* [Add a new pallet](collectables-workshop/2-add-a-pallet.md)
 	* [Build your pallet](collectables-workshop/3-customize-pallet)
@@ -16,6 +22,3 @@
 
 * [Launch](collectables-workshop/11-launch.md)
 * [What's next?](collectables-workshop/12-whats-next.md)
-
-
-	
