@@ -44,7 +44,7 @@ impl<T: Config> Pallet<T> {
 
 Why introduce this complexity to Substrate development?
 
-![Rust Crab Strong](../collectables-workshop/assets/rust-crab-strong.png)
+![Rust Crab Strong](../assets/rust-crab-strong.png)
 
 Imagine the flexibility of writing code that makes no assumptions about the core blockchain architecture decisions you have made.
 

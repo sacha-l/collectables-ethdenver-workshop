@@ -13,6 +13,4 @@ In this workshop, we'll focus on writing a pallet for a blockchain specialized i
 
 <!-- slide:break-40 -->
 
-![pallets](assets/frame-pallets.png)
-
-
+![pallets](../assets/frame-pallets.png)

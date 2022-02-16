@@ -1,11 +1,11 @@
 
-# Welcome to ETH Denver Substrate Collectables Workshop! 
+# Welcome to ETH Denver Substrate Collectables Workshop!
 
-This was created for the Substrate Workshop at ETH Denver 2022 and is based on Substrate's [Kitties tutorial](https://docs.substrate.io/tutorials/v3/kitties/pt1/). 
+This was created for the Substrate Workshop at ETH Denver 2022 and is based on Substrate's [Kitties tutorial](https://docs.substrate.io/tutorials/v3/kitties/pt1/).
 
 In this workshop, you'll learn how to build a standalone blockchain with Substrate that creates and manages the ownership of NFT-like assets and allows you to interact with them.
 
-We have a lot to cover. 
+We have a lot to cover.
 So let's get right to it!
 
 To follow along for this workshop, you'll either need:
@@ -17,7 +17,7 @@ To follow along for this workshop, you'll either need:
 
 <!-- slide:break-40 -->
 
-![substrate](collectables-workshop/assets/substrate.svg)
+![substrate](assets/substrate.svg)
 
 What you'll learn:
 

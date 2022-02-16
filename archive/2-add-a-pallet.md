@@ -1,10 +1,10 @@
 # Project structure
 
 Using the node template the easiest way to get your Substrate blockchain up and running.
-You should have that already installed and compiled. 
+You should have that already installed and compiled.
 Compilation time takes a while at first but subsequent builds won't take as long.
 
-When you run: 
+When you run:
 ```bash
 ./target/release/node-template --dev
 ```
@@ -21,7 +21,7 @@ Now, let's take a closer look at the structure of the node template we'll be wor
 1. Go to `runtime/src/lib.rs` and `Ctrl + f` "construct_runtime!(".
 This should take you to line 290.
 
-The `construct_runtime` macro compiles externally published pallets to generates the state transition function of our chain. 
+The `construct_runtime` macro compiles externally published pallets to generates the state transition function of our chain.
 These are the pallets in the runtime of our node template:
 
 * 🛠 `System: frame_system`: core system level functionality.
@@ -36,6 +36,4 @@ These are the pallets in the runtime of our node template:
 
 
 <!-- slide:break-40 -->
-![project](assets/structure.png)
-
-
+![project](../assets/structure.png)
