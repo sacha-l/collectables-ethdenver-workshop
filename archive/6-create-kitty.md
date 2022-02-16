@@ -1,8 +1,8 @@
 # Create a Kitty
 
 Every dispatchable declared in a pallet must contain an associated weight for the runtime to know what the worst case execution time is.
-Usually, when writing a pallet you would perform benchmarks to correctly determine what the worst case values are. 
-But for this workshop, we'll set all weights to 0 because our goal isn't to write production ready code. 
+Usually, when writing a pallet you would perform benchmarks to correctly determine what the worst case values are.
+But for this workshop, we'll set all weights to 0 because our goal isn't to write production ready code.
 
 We'll write our disptachable function under the `#[pallet::call] impl<T: Config> Pallet<T> {}` declaration and all helper functions under `impl<T: Config> Pallet<T> {}`.
 
@@ -18,7 +18,7 @@ Use `ensure_signed` to verify that the caller is froma  signed origin.
 It returns [`DispatchResult`](https://docs.substrate.io/rustdocs/latest/frame_support/dispatch/type.DispatchResult.html).
 1. Write `gen_dna`.
 This just needs randomly generate a `[u8; 16]` and `Gender` and return a tuple of (`[u8; 16]`, `Gender`).
-1. For randomness, we'll need to add a special type to our pallet's configuration trait. 
+1. For randomness, we'll need to add a special type to our pallet's configuration trait.
 Add this line in `pub trait Config: frame_system::Config {}`
 ```rust
 type KittyRandomness: Randomness<Self::Hash, Self::BlockNumber>;
@@ -36,8 +36,8 @@ The publicly callable `create_kitty` function will only check the origin of the 
 ```rust
 #[pallet::weight(0)]
 pub fn create_kitty(origin: OriginFor<T>) -> DispatchResult {
-    let sender = ensure_signed(origin)?; 
-    let kitty_id = Self::mint(&sender, None, None)?; 
+    let sender = ensure_signed(origin)?;
+    let kitty_id = Self::mint(&sender, None, None)?;
     Ok(())
 }
 ```
@@ -58,7 +58,7 @@ fn gen_dna() -> ([u8; 16], Gender) {
 
     // Turns into a byte array
     let encoded_payload = unique_payload.encode();
-    let hash = blake2_128(&encoded_payload);
+    let hash = frame_support::Hashable::blake2_128(&encoded_payload);
 
     // Generate Gender
     if hash[0] % 2 == 0 {
@@ -73,7 +73,7 @@ fn gen_dna() -> ([u8; 16], Gender) {
 
 #### ** 3. Minting helper **
 
-Using the following methods from our storage API: 
+Using the following methods from our storage API:
 * [`contains_key`](https://docs.substrate.io/rustdocs/latest/frame_support/storage/trait.StorageMap.html#tymethod.contains_key)
 * [`try_append`](https://docs.substrate.io/rustdocs/latest/frame_support/storage/types/struct.StorageMap.html#method.try_append)
 * [`get`](https://docs.substrate.io/rustdocs/latest/frame_support/storage/trait.StorageMap.html#tymethod.get)
@@ -116,7 +116,7 @@ pub fn mint(
 
 #### ** 4. Events and errors **
 
-In the minting function, we used different `Errors` and `Events`. 
+In the minting function, we used different `Errors` and `Events`.
 These will be emitted once they are reached, to indicate whether an update to storage suceeded or if some checks failed.
 We have:
 * `Error::<T>::NoKitty`: handles the case when the kitty doesn't exist
