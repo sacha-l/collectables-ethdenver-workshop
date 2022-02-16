@@ -34,7 +34,7 @@ pub mod pallet {
 	use frame_support::pallet_prelude::*;
 	use frame_system::pallet_prelude::*;
 
-	// The basis which we buil
+	// The struct on which we build all of our Pallet logic.
 	#[pallet::pallet]
 	pub struct Pallet<T>(_);
 

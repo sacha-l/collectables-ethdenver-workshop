@@ -39,7 +39,7 @@ pub struct Kitty<T: Config> {
 
 #### ** 2. Enable encode/decode **
 
-As FRAME runtime engineers, we're able to use special macros to ensure that the object we created can be encodable/decodable and will expose the correct metadata including information about the custom type. 
+As FRAME runtime engineers, we're able to use special macros to ensure that the object we created can be encodable/decodable and will expose the correct metadata including information about the custom type.
 
 Add these before the struct declaration:
 
@@ -50,10 +50,10 @@ Add these before the struct declaration:
 
 #### ** 3. Add accounts and balances  **
 
-Our kitty contains an owner and price field with a special types that we need to define. 
+Our kitty contains an owner and price field with a special types that we need to define.
 To help us, the `frame_support` and `frame_system` crates provides us with:
 - a `Currency` trait that gives us a way create a type to handle the balances of an account
-- an `AccountId` type 
+- an `AccountId` type
 
 1. Add the `Currency` dependency.
 ```rust
@@ -77,7 +77,7 @@ type BalanceOf<T> =
 
 Let's create an enum to handle the `Gender` type for our kitty, super simple:
 
-```rust 
+```rust
 	pub enum Gender {
 		Male,
 		Female,
