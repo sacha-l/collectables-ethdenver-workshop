@@ -20,7 +20,6 @@ Check your code against the solution and let's move on to adding storage items f
 
 <!-- tabs:start -->
 
-
 #### ** ACTION ITEMS **
 
 Add the following custom types to your Pallet.
