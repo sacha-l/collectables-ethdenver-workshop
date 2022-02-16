@@ -17,7 +17,7 @@ To follow along for this workshop, you'll either need:
 
 <!-- slide:break-40 -->
 
-![substrate](assets/substrate.svg)
+![substrate](assets/final-front-end.png)
 
 What you'll learn:
 
