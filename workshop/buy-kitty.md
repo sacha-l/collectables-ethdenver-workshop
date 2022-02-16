@@ -13,6 +13,8 @@ We'll need to ensure a few things before we can allow the user of this function 
 
 Then, we write the `buy_kitty` dispatchable which simply verifies the function caller and calls `do_buy_kitty`.
 
+To perform a change in balances, we'll simply use FRAME's `Currency` trait and `transfer` method.
+
 Your turn!
 
 <!-- slide:break-40 -->
@@ -156,7 +158,11 @@ pub fn buy_kitty(
 
 #### ** SOLUTION **
 
-This should compile successfully. There should be no warnings.
+This should compile successfully by running:
+```bash
+cargo build -p pallet-template
+```
+There should be no warnings.
 
 ```rust
 #![cfg_attr(not(feature = "std"), no_std)]

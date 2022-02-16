@@ -67,7 +67,11 @@ pub fn set_price(
 
 #### ** SOLUTION **
 
-This should compile successfully. There should be no warnings.
+This should compile successfully by running: 
+```bash
+cargo build -p pallet-template
+```
+There should be no warnings.
 
 ```rust
 #![cfg_attr(not(feature = "std"), no_std)]
