@@ -51,7 +51,7 @@ Additionally, some other traits can be helpful for basic logic:
 
 You can add all of these traits super easy using the `#[derive]` macro!
 
-```
+```rust
 #[derive(Encode, Decode, TypeInfo, MaxEncodedLen, RuntimeDebug, Eq, PartialEq, Clone, Copy)]
 pub struct MyObject {
 	pub field1: [u8; 16],

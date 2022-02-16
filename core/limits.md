@@ -10,16 +10,28 @@ When doing contract development on a platform like Ethereum, the EVM acts as a l
 
 Within the EVM, you are bounded by the **Gas Limit**, which means that any individual transaction can only execute so much logic and read or write so much storage.
 
+When you design any application for the blockchain, you must always take into account the limits of the system.
 
-<!-- slide:break -->
-
-# Runtime Limits
+## Weight
 
 Substrate gives you full access to write code as you like. However, with great power comes great responsibility.
 
 Rather than have something like the EVM meter your every line of code, Substrate allows you to benchmark your own code ahead of time, which is much more efficient.
 
 Benchmarking is beyond the scope of this workshop, but you should note that Substrate provides and expects you to use certain tools to ensure your runtime is always **bounded**.
+
+Substrate's version of `Gas` is called `Weight`. We won't go into this much, but you will see `#[pallet::weight(0)]` as a placeholder throughout this tutorial.
+
+```rust
+#[pallet::weight(0)]
+fn my_function(origin: OriginFor<T>) {
+	// do stuff..
+}
+```
+
+<!-- slide:break -->
+
+# Runtime Limits
 
 One example is the `BoundedVec` type, which is like a standard `Vec`, but has a limit to the number of elements which can be in the vector.
 

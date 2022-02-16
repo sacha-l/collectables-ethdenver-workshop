@@ -27,7 +27,7 @@ So rather than write those 3 lines, you can just write that one line.
 
 <!-- slide:break -->
 
-## Common Pallet Macros
+# Common Pallet Macros
 
 ```rust
 #![cfg_attr(not(feature = "std"), no_std)]

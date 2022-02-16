@@ -3,9 +3,12 @@
 Traits tell the Rust compiler what kinds of functionality a type has.
 Traits are similar to a feature often called interfaces in other languages, although with some differences.
 
-You can imagine manually implementing a simple trait like `PartialEq` for the types we described before:
-
 ```rust
+trait Opposite {
+	fn opposite(&self) -> Self;
+}
+
+#[derive(PartialEq, Eq)]
 enum Direction {
 	Up,
 	Down,
@@ -13,9 +16,14 @@ enum Direction {
 	Right,
 }
 
-impl PartialEq for Direction {
-    fn eq(&self, other: &Self) -> bool {
-        self == other
+impl Opposite for Direction {
+    fn opposite(&self) -> Direction {
+        match self {
+            Direction::Up => Direction::Down,
+            Direction::Down => Direction::Up,
+            Direction::Left => Direction::Right,
+            Direction::Right => Direction::Left,
+        }
     }
 }
 ```
@@ -23,12 +31,7 @@ impl PartialEq for Direction {
 With this trait implemented, we can do things like:
 
 ```rust
-let direction_1 = Direction::Left;
-let direction_2 = Direction::Right;
-let direction_3 = Direction::Left;
-
-assert!(direction_1 != direction_2);
-assert!(direction_1 == direction_3);
+assert!(Direction::Left.opposite() == Direction::Right)
 ```
 
 <!-- slide:break -->
@@ -41,8 +44,8 @@ Every Pallet in Substrate has a `trait Config`, which allows you to define the t
 
 This trait always inherits from the `frame_system::Config` which defines all the core types in your runtime, like:
 
-* `AccountId`: The type representing a user address.
-* `BlockNumber`: The type representing a block number.
+* `T::AccountId`: The type representing a user address.
+* `T::BlockNumber`: The type representing a block number.
 * etc...
 
 These traits allows your runtime to be **generic**, which means that you can easily change the fundamental types in your blockchain, and things will still work.
