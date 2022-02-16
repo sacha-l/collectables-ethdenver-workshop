@@ -1,6 +1,7 @@
 # Set Price
 
 To give the ability for a user to set the price of a kitty, we'll need to update the `price` field in our kitty struct and emit in event.
+We'll use the [`get`](https://docs.substrate.io/rustdocs/latest/frame_support/storage/trait.StorageMap.html#tymethod.get) and [`insert`](https://docs.substrate.io/rustdocs/latest/frame_support/storage/trait.StorageMap.html#tymethod.insert) methods from our `Kitties` storage map to modify and update the Kitty object. 
 
 Just like our other dispatchables, we need to perform a few checks before we allow the caller to write a new price to storage:
 

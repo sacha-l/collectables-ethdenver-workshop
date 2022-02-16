@@ -10,7 +10,7 @@ These include:
 * A kitty cannot be transferred to its owner
 * A kitty cannot be transferred to an account that already has the maximum kitties allowed
 
-Handling errors and events we'll need:
+To handle errors and events we'll need:
 
 1. `NoKitty`, `NotOwner`, and `TransferToSelf` errors to emit relevant errors when checks do not go through.
 1. A `Transferred` event, to emit an event when a transfer is successful.

@@ -43,3 +43,5 @@ Make sure your `substrate-node-template` is also running and you should see the 
 ![Empty Front End](../assets/front-end-empty.png)
 
 Congratulations for completing this workshop with us! 🥳
+
+Curious how you could write tests for your pallets? You can check the solution code of the kitties pallet [here](https://github.com/substrate-developer-hub/substrate-node-template/tree/tutorials/solutions/kitties/pallets/kitties) which includes tests that you can run using `cargo test -p pallet-kitties`.

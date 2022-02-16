@@ -1,6 +1,8 @@
 
 # Welcome to ETH Denver Substrate Collectables Workshop!
 
+**Workshop link:** [tinyurl.com/substrate-ethdenver-2022](tinyurl.com/substrate-ethdenver-2022)
+
 This was created for the Substrate Workshop at ETH Denver 2022 and is based on Substrate's [Kitties tutorial](https://docs.substrate.io/tutorials/v3/kitties/pt1/).
 
 In this workshop, you'll learn how to build a custom Substrate blockchain that can create and manage Kitty NFTs.
