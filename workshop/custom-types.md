@@ -8,7 +8,7 @@ We will also "import" the `Balance` type into our Pallet, and make it easier to 
 
 Inside of the `Kitty` struct, we have a unique identifier `dna` which we will use to ensure that each kitty is totally a unique in our blockchain. We will also use this DNA as the seed for generating unique attributes about our kitty!
 
-![Kitty!](../collectables-workshop/assets/cat-avatar.png)
+![Kitty!](../assets/cat-avatar.png)
 
 We also store the `price` of a Kitty with an `Option`. An `Option` can be `Some(value)` or `None`. If the value is `None`, then we will assume the kitty is not for sale.
 
@@ -55,6 +55,9 @@ This should compile successfully. Don't worry about warnings.
 
 ```rust
 #![cfg_attr(not(feature = "std"), no_std)]
+
+pub use pallet::*;
+
 #[frame_support::pallet]
 pub mod pallet {
 	use frame_support::pallet_prelude::*;

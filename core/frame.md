@@ -1,4 +1,4 @@
-# FRAME 
+# FRAME
 
 The runtime of a Substrate blockchain acts as the state transition function, where all of the business logic of our chain lives.
 A runtime typically contains a number of pallets that, together, define the business logic of the chain.
@@ -21,9 +21,9 @@ This gives you a lot of flexibility for the logic you're writing, but this means
 
 <!-- slide:break-40 -->
 
-![runtime](assets/runtime.png)
+![runtime](../assets/runtime.png)
 
-Important concepts: 
+Important concepts:
 
 * Weights
 * Verify first, write last

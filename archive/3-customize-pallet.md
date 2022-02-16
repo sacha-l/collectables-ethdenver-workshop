@@ -31,7 +31,7 @@ While our pallet builds, lets decribe what the code we just pasted in does.
 * `#[pallet::error]`: enabels our pallets to emit errors.
 * `#[pallet::call]`: a way for our pallet to instantiate calls that can be made from signed and unsigned origins.
 
-These are the macros _required_ for a pallet to build. 
+These are the macros _required_ for a pallet to build.
 We'll also be using additional ones as we build out our pallet.
 
 Yay - that's basic stuff now lets get to building some custom logic. 🥳
@@ -45,6 +45,9 @@ Yay - that's basic stuff now lets get to building some custom logic. 🥳
 
 ```rust
 #![cfg_attr(not(feature = "std"), no_std)]
+
+pub use pallet::*;
+
 #[frame_support::pallet]
 pub mod pallet {
 	use frame_support::pallet_prelude::*;
