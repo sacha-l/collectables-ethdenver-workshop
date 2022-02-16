@@ -25,6 +25,8 @@ So let's get right to it!
 
 <!-- slide:break -->
 
+<img src="assets/qr-code.png" alt="qr-code" width="150"/>
+
 ![substrate](assets/final-front-end.png)
 
 **Acknowledgements:** thank you to Shawn for the original tutorial, inspired by the [crypto zombies tutorial](https://cryptozombies.io/en/lesson/1/chapter/1).
