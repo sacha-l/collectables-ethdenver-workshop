@@ -29,6 +29,9 @@ If you got this far, then you are ready to move forward!
 
 ```rust
 #![cfg_attr(not(feature = "std"), no_std)]
+
+pub use pallet::*;
+
 #[frame_support::pallet]
 pub mod pallet {
 	use frame_support::pallet_prelude::*;

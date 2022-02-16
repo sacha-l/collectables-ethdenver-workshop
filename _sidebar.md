@@ -19,6 +19,7 @@
 	* [Transfer](workshop/transfer.md)
 	* [Set Price](workshop/set-price.md)
 	* [Buy Kitty](workshop/buy-kitty.md)
+	* [Add Pallet](workshop/add-pallet.md)
 
 * [Launch](collectables-workshop/11-launch.md)
 * [What's next?](collectables-workshop/12-whats-next.md)
