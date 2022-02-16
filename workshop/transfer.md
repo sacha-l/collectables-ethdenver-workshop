@@ -2,9 +2,6 @@
 
 Next we'll need a way for users of this pallet to transfer kitties between accounts.
 We'll do this by creating a publicly callable function called `transfer`.
-For now, the transfer function will only handle the change in ownership of a kitty.
-Later, we'll handle a change in balances between two accounts.
-
 
 This function will rely on an internal function called `do_transfer` to perform checks and write changes to storage.
 It will emit events and handle any errors and handle checks to enforce rules around how a kitty can be transferred. 

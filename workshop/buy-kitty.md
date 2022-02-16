@@ -1,6 +1,19 @@
 # Buy Kitty
 
-TODO: Write about this.
+Users will be able to call `buy_kitty`, which like our other dispatchables will use an internal function to perform checks before either emitting an error or writing to storage if the purchase is successful.
+
+The internal function, `do_buy_kitty` will handle the balance updates once a kitty can be transferred. 
+
+We'll need to ensure a few things before we can allow the user of this function to purchase a kitty:
+
+1. Check that the price of the kitty is at least the same value of the proposed buying price, if not emit a `BidPriceTooLow` error.
+1. Check that the Kitty is for sale, if it isn't emit a `NotForSale` error.
+1. Check whether the Kitty's current price is within the user's budget and whether the user has enough free balance.
+1. Check that the user has the capacity to receive a Kitty.
+
+Then, we write the `buy_kitty` dispatchable which simply verifies the function caller and calls `do_buy_kitty`.
+
+Your turn!
 
 <!-- slide:break-40 -->
 
