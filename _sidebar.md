@@ -1,7 +1,7 @@
 <!-- docs/_sidebar.md -->
 
 * [Welcome](/)
-* [Setup](core/setup.md)
+* [Setup](setup.md)
 * Fundamentals
 	* [Substrate](core/substrate.md)
 	* [FRAME](core/frame.md)
@@ -13,6 +13,7 @@
 	* [Storage](core/storage.md)
 
 * Workshop
+	* [Start](workshop/start.md)
 	* [Config](workshop/config.md)
 	* [Custom Types](workshop/custom-types.md)
 	* [Custom Storage](workshop/custom-storage.md)
@@ -24,3 +25,4 @@
 
 * [Launch](workshop/launch.md)
 * [What's next?](workshop/whats-next.md)
+* [Notes](notes.md)
