@@ -34,7 +34,7 @@ pub struct MyObject {
 
 ## Derive Attributes
 
-Normally, you would need to manually implement various traits for your custom types, but sometimes the rust compiler can do this for you!
+Normally, you would need to manually implement various traits for your custom types, but sometimes the Rust compiler can do this for you!
 
 When working with types inside of Substrate, we expect that they are able to satisfy a number of traits:
 
@@ -49,7 +49,7 @@ Additionally, some other traits can be helpful for basic logic:
 * `Eq` & `PartialEq`: Check that two objects are equal.
 * `Clone` & `Copy`: Allow an object to be duplicated.
 
-You can add all of these traits super easy using the `#[derive]` macro!
+You can add all of these traits super easily using the `#[derive]` macro!
 
 ```rust
 #[derive(Encode, Decode, TypeInfo, MaxEncodedLen, RuntimeDebug, Eq, PartialEq, Clone, Copy)]

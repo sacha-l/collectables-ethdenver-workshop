@@ -36,7 +36,7 @@ assert!(Direction::Left.opposite() == Direction::Right)
 
 <!-- slide:break -->
 
-# Advance Traits
+# Advanced Traits
 
 You can also define custom traits, and associate things like type definitions, which themselves have traits.
 
@@ -51,7 +51,7 @@ This trait always inherits from the `frame_system::Config` which defines all the
 These traits allows your runtime to be **generic**, which means that you can easily change the fundamental types in your blockchain, and things will still work.
 
 
-Here is a hint as to what you might see later in the tutorial, but practically speaking, this is a pretty advance concept, so mostly take it for granted.
+Here is a hint as to what you might see later in the tutorial, but practically speaking, this is a pretty advanced concept, so mostly take it for granted.
 
 ```rust
 #[pallet::config]
