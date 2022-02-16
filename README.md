@@ -9,7 +9,7 @@ In this workshop, you'll learn how to build a custom Substrate blockchain that c
 
 To follow along for this workshop, you'll either need:
 
-- To have your local environment set up with Rust and a compiled version of the Node Template. Follow the [setup instructions](./core/setup.md).
+- To have your local environment set up with Rust and a compiled version of the Node Template. Follow the [setup instructions](https://docs.substrate.io/tutorials/v3/create-your-first-substrate-chain/#install-required-packages).
 - OR a GitHub account to use the [Substrate Playground](https://playground.substrate.dev/?deploy=node-template)
 
 ## What You'll Learn
