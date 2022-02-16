@@ -1,6 +1,15 @@
 # Set Price
 
-TODO: Write about this.
+To give the ability for a user to set the price of a kitty, we'll need to update the `price` field in our kitty struct and emit in event.
+
+Just like our other dispatchables, we need to perform a few checks before we allow the caller to write a new price to storage:
+
+* The caller must be a signed origin
+* The kitty must already exist 
+* The caller must be the owner of the kitty
+
+Then, we can simply write the new price to storage and emit a `PriceSet` event.
+
 
 <!-- slide:break-40 -->
 
