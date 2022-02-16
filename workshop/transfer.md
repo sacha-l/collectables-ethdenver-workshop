@@ -143,7 +143,7 @@ This should compile successfully by running:
 cargo build -p pallet-template
 ```
 
-Don't worry about warnings.
+There should be no warnings.
 
 ```rust
 #![cfg_attr(not(feature = "std"), no_std)]
