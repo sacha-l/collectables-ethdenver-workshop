@@ -43,7 +43,13 @@ pub(super) type KittiesOwned<T: Config> = StorageMap<
 
 #### ** SOLUTION **
 
-This should compile successfully. Don't worry about warnings.
+This should compile successfully by running:
+
+```bash
+cargo build -p pallet-template
+```
+
+Don't worry about warnings.
 
 ```rust
 #![cfg_attr(not(feature = "std"), no_std)]

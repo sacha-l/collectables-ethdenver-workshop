@@ -4,9 +4,9 @@ Next we'll need a way for users of this pallet to transfer kitties between accou
 We'll do this by creating a publicly callable function called `transfer`.
 
 This function will rely on an internal function called `do_transfer` to perform checks and write changes to storage.
-It will emit events and handle any errors and handle checks to enforce rules around how a kitty can be transferred. 
+It will emit events and handle any errors and handle checks to enforce rules around how a kitty can be transferred.
 These include:
-* A kitty must exist in order to be transferrable 
+* A kitty must exist in order to be transferrable
 * A kitty cannot be transferred to its owner
 * A kitty cannot be transferred to an account that already has the maximum kitties allowed
 
@@ -138,9 +138,11 @@ pub fn transfer(
 #### ** SOLUTION **
 
 This should compile successfully by running:
+
 ```bash
 cargo build -p pallet-template
 ```
+
 Don't worry about warnings.
 
 ```rust

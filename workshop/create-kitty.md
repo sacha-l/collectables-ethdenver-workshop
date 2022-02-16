@@ -158,9 +158,11 @@ impl<T: Config> Pallet<T> {
 #### ** SOLUTION **
 
 This should compile successfully by running:
+
 ```bash
 cargo build -p pallet-template
 ```
+
 Don't worry about warnings.
 
 ```rust

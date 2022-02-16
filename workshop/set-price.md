@@ -5,7 +5,7 @@ To give the ability for a user to set the price of a kitty, we'll need to update
 Just like our other dispatchables, we need to perform a few checks before we allow the caller to write a new price to storage:
 
 * The caller must be a signed origin
-* The kitty must already exist 
+* The kitty must already exist
 * The caller must be the owner of the kitty
 
 Then, we can simply write the new price to storage and emit a `PriceSet` event.
@@ -67,10 +67,12 @@ pub fn set_price(
 
 #### ** SOLUTION **
 
-This should compile successfully by running: 
+This should compile successfully by running:
+
 ```bash
 cargo build -p pallet-template
 ```
+
 There should be no warnings.
 
 ```rust

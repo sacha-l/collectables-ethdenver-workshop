@@ -2,7 +2,7 @@
 
 Users will be able to call `buy_kitty`, which like our other dispatchables will use an internal function to perform checks before either emitting an error or writing to storage if the purchase is successful.
 
-The internal function, `do_buy_kitty` will handle the balance updates once a kitty can be transferred. 
+The internal function, `do_buy_kitty` will handle the balance updates once a kitty can be transferred.
 
 We'll need to ensure a few things before we can allow the user of this function to purchase a kitty:
 
@@ -159,9 +159,11 @@ pub fn buy_kitty(
 #### ** SOLUTION **
 
 This should compile successfully by running:
+
 ```bash
 cargo build -p pallet-template
 ```
+
 There should be no warnings.
 
 ```rust

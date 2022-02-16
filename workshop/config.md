@@ -62,7 +62,13 @@ pub trait Config: frame_system::Config {
 
 #### ** SOLUTION **
 
-This should compile successfully. Don't worry about some warnings.
+This should compile successfully by running:
+
+```bash
+cargo build -p pallet-template
+```
+
+Don't worry about warnings.
 
 ```rust
 #![cfg_attr(not(feature = "std"), no_std)]
