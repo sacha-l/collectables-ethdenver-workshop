@@ -3,24 +3,28 @@
 
 This was created for the Substrate Workshop at ETH Denver 2022 and is based on Substrate's [Kitties tutorial](https://docs.substrate.io/tutorials/v3/kitties/pt1/).
 
-In this workshop, you'll learn how to build a standalone blockchain with Substrate that creates and manages the ownership of NFT-like assets and allows you to interact with them.
+In this workshop, you'll learn how to build a custom Substrate blockchain that can create and manage Kitty NFTs.
+
+To follow along for this workshop, you'll either need:
+
+- To have your local environment set up with Rust and a compiled version of the Node Template. Follow the [setup instructions](./core/setup.md).
+- OR a GitHub account to use the [Substrate Playground](https://playground.substrate.dev/?deploy=node-template)
+
+## What You'll Learn
+
+* The basic patterns for building and running a Substrate node on your local machine.
+* The basics of [Rust](https://www.rust-lang.org/) as used in Substrate.
+* How to write a custom FRAME Pallet which can create and manage NFTs.
+	* Create custom types.
+	* Manage custom storage.
+	* Write custom logic and callable functions.
+* Integrate your new pallet into your Substrate runtime.
 
 We have a lot to cover.
 So let's get right to it!
 
-To follow along for this workshop, you'll either need:
-
-- To have your local environment set up with Rust and a compiled version of the Node Template
-- OR a Github account to use the [Substrate Playground](https://playground.substrate.dev/?deploy=node-template)
-
-**Acknowledgements:** thank you to Shawn for the original tutorial, inspired by the [crypto zombies tutorial](https://cryptozombies.io/en/lesson/1/chapter/1).
-
-<!-- slide:break-40 -->
+<!-- slide:break -->
 
 ![substrate](assets/final-front-end.png)
 
-What you'll learn:
-
-* The basic patterns for building and running a Substrate node on your local machine
-* How to write a custom FRAME pallet and integrate it to your runtime
-* How to create and query storage items for your chain and write callable functions that emit events and errors
+**Acknowledgements:** thank you to Shawn for the original tutorial, inspired by the [crypto zombies tutorial](https://cryptozombies.io/en/lesson/1/chapter/1).
