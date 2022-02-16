@@ -1,6 +1,28 @@
 # Transfer Kitty
 
-TODO: Write about this.
+Next we'll need a way for users of this pallet to transfer kitties between accounts.
+We'll do this by creating a publicly callable function called `transfer`.
+For now, the transfer function will only handle the change in ownership of a kitty.
+Later, we'll handle a change in balances between two accounts.
+
+
+This function will rely on an internal function called `do_transfer` to perform checks and write changes to storage.
+It will emit events and handle any errors and handle checks to enforce rules around how a kitty can be transferred. 
+These include:
+* A kitty must exist in order to be transferrable 
+* A kitty cannot be transferred to its owner
+* A kitty cannot be transferred to an account that already has the maximum kitties allowed
+
+Handling errors and events we'll need:
+
+1. `NoKitty`, `NotOwner`, and `TransferToSelf` errors to emit relevant errors when checks do not go through.
+1. A `Transferred` event, to emit an event when a transfer is successful.
+
+Then, in `do_transfer` we'll:
+1. Check if the kitty exists and isn't being sent to its owner.
+1. Update our `KittiesOwned` storage item to reflect the new owners and write all changes to storage.
+
+Finally, we can write the publicly callable dispatchable, `create_kitty` which will simply check the origin of the caller and call `do_transfer`.
 
 <!-- slide:break-40 -->
 
@@ -118,7 +140,11 @@ pub fn transfer(
 
 #### ** SOLUTION **
 
-This should compile successfully. There should be no warnings.
+This should compile successfully by running:
+```bash
+cargo build -p pallet-template
+```
+Don't worry about warnings.
 
 ```rust
 #![cfg_attr(not(feature = "std"), no_std)]
