@@ -15,8 +15,4 @@ In this workshop, we'll focus on writing a pallet for a blockchain specialized i
 
 ![pallets](assets/frame-pallets.png)
 
-**Takeaways:**
 
-* Rust and WebAssembly
-* Substrate runtimes
-* Pallets and FRAME
