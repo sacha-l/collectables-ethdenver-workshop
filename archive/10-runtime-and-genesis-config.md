@@ -1,11 +1,11 @@
 # Runtime and genesis config
 
-We've written a pallet that compiles without errors alone, but now its time to link it up to our runtime. 
+We've written a pallet that compiles without errors alone, but now its time to link it up to our runtime.
 To do this we need to:
 1. Implement our pallet for our runtime and make our configuration types concrete.
 1. Set up the genesis configuration for our pallet.
 
-#### **Update your runtime configuration** 
+#### **Update your runtime configuration**
 
 Implement your pallet for the runtime:
 
@@ -21,7 +21,7 @@ impl pallet_template::Config for Runtime {
 Name your pallet for your runtime:
 
 ```rust
-construct_runtime!( 
+construct_runtime!(
     // -- snip --
     SubstrateKitties: pallet_template
     // -- snip --
@@ -32,7 +32,7 @@ Or at least, we need to tell our runtime that there isn't anything in our pallet
 
 To configure the genesis of our pallet:
 
-1. Write a `GenesisConfig` struct with the `#[pallet::genesis_config]` attribute 
+1. Write a `GenesisConfig` struct with the `#[pallet::genesis_config]` attribute
 1. Implement `Default` for the struct
 1. Build the genesis by implementing `GenesisBuild` for the `GenesisConfig` struct
 1. Update the `node/src/chain_spec.rs` file
@@ -40,7 +40,7 @@ To configure the genesis of our pallet:
 
 <!-- slide:break-40 -->
 
-#### **Configure genesis for your pallet** 
+#### **Configure genesis for your pallet**
 
 Add the genesis configuration in `pallets/template/src/lib.rs`:
 
@@ -71,10 +71,10 @@ impl<T: Config> GenesisBuild<T> for GenesisConfig<T> {
 }
 ```
 
-#### **Update your chain spec** 
+#### **Update your chain spec**
 
 Navigate to the `node/src/chan_spec.rs` file.
-This holds all of the information about the chain including genesis configuration. 
+This holds all of the information about the chain including genesis configuration.
 
 Add this line:
 

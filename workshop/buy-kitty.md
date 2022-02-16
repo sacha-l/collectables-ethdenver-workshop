@@ -1,4 +1,4 @@
-# Set Price
+# Buy Kitty
 
 TODO: Write about this.
 
@@ -8,7 +8,7 @@ TODO: Write about this.
 
 #### ** 1. ADD EVENT **
 
-Add the `PriceSet` event to your Pallet.
+Add the `Sold` event to your Pallet.
 
 ```rust
 // Your Pallet's events.
@@ -21,12 +21,16 @@ pub enum Event<T: Config> {
 	Transferred { from: T::AccountId, to: T::AccountId, kitty: [u8; 16] },
 	/// The price of a kitty was successfully set.
 	PriceSet { kitty: [u8; 16], price: Option<BalanceOf<T>> },
+	/// A kitty was successfully sold.
+	Sold { seller: T::AccountId, buyer: T::AccountId, kitty: [u8; 16], price: BalanceOf<T> },
 }
 ```
 
-#### ** 2. SET PRICE **
+#### ** 2. DO BUY KITTY **
 
-Finally, create the actual **callable** function.
+Create an **internal** function to help you buy a kitty.
+
+Note that this is VERY similar to the `do_transfer` function, and can probably be combined for those who want a challenge :).
 
 ```rust
 /// Set the price for a kitty.
