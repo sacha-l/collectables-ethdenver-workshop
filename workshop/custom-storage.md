@@ -1,53 +1,44 @@
-# Custom Types
+# Custom Storage
 
-We already gave you a sneak peak at defining and using custom types in Substrate.
+Our Pallet will use 3 storage items to track all of the state.
 
-For our Pallet, we will define an `enum Gender` and a `struct Kitty`.
+1. A `StorageValue` named `CountForKitties` which will keep track of the total number of kitties in the Pallet.
+	* This `StorageValue` simply keeps track of a `u64` value that we increment when we generate a new kitty. This means we could have up to `18_446_744_073_709_551_615` kitties.... probably more than we will ever need to worry about.
+	* It is worth noting the `ValueQuery` configuration in the `StorageValue`. This basically assumes if there is no value in storage, for example at the start of the network, that we should return the value `0` rather than an option `None`.
+2. A `StorageMap` named `Kitties` which will map each kitty to it's unique information.
+	* To keep kitties completely unique and easy to look up, the key of our map is the `dna` of the kitty. As such, we cannot have two kitties with the same `dna` since the map will have already been populated by one of them.
+	*
+3. A `StorageMap` named `KittiesOwned` which will map each user to the list of kitties they own.
+	*
 
-We will also "import" the `Balance` type into our Pallet, and make it easier to access.
-
-Inside of the `Kitty` struct, we have a unique identifier `dna` which we will use to ensure that each kitty is totally a unique in our blockchain. We will also use this DNA as the seed for generating unique attributes about our kitty!
-
-![Kitty!](../collectables-workshop/assets/cat-avatar.png)
-
-We also store the `price` of a Kitty with an `Option`. An `Option` can be `Some(value)` or `None`. If the value is `None`, then we will assume the kitty is not for sale.
-
-Finally, note that we take advantage of the `#[derive]` macro to implement all the different traits the Pallet expects from these custom types, just as we explained earlier. If you don't include these, the Rust compiler will start yelling at you as soon as you try to use these custom types.
-
-Check your code against the solution and let's move on to adding storage items for our kitties!
+## More About `CountForKitties`
 
 <!-- slide:break-40 -->
 
 <!-- tabs:start -->
 
-
 #### ** ACTION ITEMS **
 
-Add the following custom types to your Pallet.
+Add the following custom storage items to your Pallet.
 
 ```rust
-// Allows easy access our Pallet's `Balance` type. Comes from `Currency` interface.
-type BalanceOf<T> =
-	<<T as Config>::Currency as Currency<<T as frame_system::Config>::AccountId>>::Balance;
+/// Keeps track of the number of kitties in existence.
+#[pallet::storage]
+pub(super) type CountForKitties<T: Config> = StorageValue<_, u64, ValueQuery>;
 
-// The Gender type used in the `Kitty` struct
-#[derive(Clone, Encode, Decode, PartialEq, Copy, RuntimeDebug, TypeInfo, MaxEncodedLen)]
-pub enum Gender {
-	Male,
-	Female,
-}
+/// Maps the kitty struct to the kitty DNA.
+#[pallet::storage]
+pub(super) type Kitties<T: Config> = StorageMap<_, Twox64Concat, [u8; 16], Kitty<T>>;
 
-// Struct for holding kitty information
-#[derive(Clone, Encode, Decode, PartialEq, RuntimeDebug, TypeInfo, MaxEncodedLen, Copy)]
-#[scale_info(skip_type_params(T))]
-pub struct Kitty<T: Config> {
-	// Using 16 bytes to represent a kitty DNA
-	pub dna: [u8; 16],
-	// `None` assumes not for sale
-	pub price: Option<BalanceOf<T>>,
-	pub gender: Gender,
-	pub owner: T::AccountId,
-}
+/// Track the kitties owned by each account.
+#[pallet::storage]
+pub(super) type KittiesOwned<T: Config> = StorageMap<
+	_,
+	Twox64Concat,
+	T::AccountId,
+	BoundedVec<[u8; 16], T::MaxKittiesOwned>,
+	ValueQuery,
+>;
 ```
 
 #### ** SOLUTION **
@@ -90,7 +81,23 @@ pub mod pallet {
 		pub owner: T::AccountId,
 	}
 
-	/* Placeholder for defining custom storage items. */
+	/// Keeps track of the number of kitties in existence.
+	#[pallet::storage]
+	pub(super) type CountForKitties<T: Config> = StorageValue<_, u64, ValueQuery>;
+
+	/// Maps the kitty struct to the kitty DNA.
+	#[pallet::storage]
+	pub(super) type Kitties<T: Config> = StorageMap<_, Twox64Concat, [u8; 16], Kitty<T>>;
+
+	/// Track the kitties owned by each account.
+	#[pallet::storage]
+	pub(super) type KittiesOwned<T: Config> = StorageMap<
+		_,
+		Twox64Concat,
+		T::AccountId,
+		BoundedVec<[u8; 16], T::MaxKittiesOwned>,
+		ValueQuery,
+	>;
 
 	// Your Pallet's configuration trait, representing custom external types and interfaces.
 	#[pallet::config]

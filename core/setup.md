@@ -40,6 +40,8 @@ pub mod pallet {
 
 	/* Placeholder for defining custom types. */
 
+	/* Placeholder for defining custom storage items. */
+
 	// Your Pallet's configuration trait, representing custom external types and interfaces.
 	#[pallet::config]
 	pub trait Config: frame_system::Config {
