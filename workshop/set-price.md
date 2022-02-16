@@ -10,6 +10,8 @@ Just like our other dispatchables, we need to perform a few checks before we all
 
 Then, we can simply write the new price to storage and emit a `PriceSet` event.
 
+![Kitty](../assets/kitty1.png)
+
 
 <!-- slide:break-40 -->
 
