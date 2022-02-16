@@ -14,6 +14,7 @@
 * Workshop
 	* [Config](workshop/config.md)
 	* [Custom Types](workshop/custom-types.md)
+	* [Custom Storage](workshop/custom-storage.md)
 * [What we're building](collectables-workshop/1-specs.md)
 	* [Structs and types](archive/4-structs-and-types.md)
 	* [Add storage items](collectables-workshop/5-add-storage.md)
