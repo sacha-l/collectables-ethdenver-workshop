@@ -9,9 +9,9 @@ Our Pallet will use 3 storage items to track all of the state.
 	* To keep kitties completely unique and easy to look up, the key of our map is the `dna` of the kitty. As such, we cannot have two kitties with the same `dna` since the map will have already been populated by one of them.
 	*
 3. A `StorageMap` named `KittiesOwned` which will map each user to the list of kitties they own.
-	*
-
-## More About `CountForKitties`
+	* The key for this storage map will be a user account: `T::AccountID`.
+	* The value for this storage map will be a `BoundedVec` with the `dna` of the kitties they own. This will make it easy to then look up each individual kitty for its information since the `dna` is used as the key for the `Kitties` map.
+	* By using a `BoundedVec`, we ensure that each storage item has a maximum length, which is important for managing limits within the runtime.
 
 <!-- slide:break-40 -->
 
