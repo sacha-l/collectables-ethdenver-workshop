@@ -29,7 +29,7 @@ We have built a custom front-end for the Substrate Kitties Pallet.
 You can clone that project here:
 
 ```bash
-git clone https://github.com/substrate-developer-hub/substrate-front-end-template/ --branch tutorials/kitties
+git clone https://github.com/substrate-developer-hub/substrate-front-end-template.git --branch tutorials/solutions/kitties
 ```
 
 Then build and start the project:
