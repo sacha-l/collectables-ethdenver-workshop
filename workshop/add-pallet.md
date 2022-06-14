@@ -32,7 +32,6 @@ Let's try it out next!
 /// Configure the pallet-template in pallets/template.
 impl pallet_template::Config for Runtime {
 	type Event = Event;
-	type Currency = Balances;
 	type Randomness = RandomnessCollectiveFlip;
 	type MaxPoapOwned = ConstU32<100>;
 	type StringLimit = ConstU32<100>;
