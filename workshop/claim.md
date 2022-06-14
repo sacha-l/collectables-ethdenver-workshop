@@ -162,9 +162,6 @@ use scale_info::prelude::vec::Vec;
 use sp_io::hashing::blake2_128;
 use sp_runtime::ArithmeticError;
 
-// Type for URL or CID
-type UrlOf<T> = BoundedVec<u8, <T as pallet::Config>::StringLimit>;
-
 /* Placeholder for defining custom types. */
 
 // Struct for holding POAP Collection details (by admin)
