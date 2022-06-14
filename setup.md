@@ -4,9 +4,6 @@
 
 	https://docs.substrate.io/v3/getting-started/installation/
 
-	If you don't... probably best to just watch along.
-
-
 2. Clone the [`substrate-node-template`](https://github.com/substrate-developer-hub/substrate-node-template).
 
 ```bash
@@ -15,7 +12,7 @@ git clone https://github.com/substrate-developer-hub/substrate-node-template
 
 3. Replace the contents of `substrate-node-template/pallets/template/src/lib.rs` with the **Empty Pallet Template**.
 
-4. Compile your project. Don't worry about warnings :)
+4. Compile your project. Don't worry about warnings. 🙂
 
 ```bash
 cargo build -p pallet-template
