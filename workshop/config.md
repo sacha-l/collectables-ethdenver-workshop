@@ -2,29 +2,26 @@
 
 To build our pallet, we need to include some custom configurations which will allow our pallet to gain access to outside interfaces like:
 
-* Manipulating user balances.
 * Generating on-chain randomness.
-* Setting limits for how many kitties an single user can own.
+* Setting limits for how many NFTs a single user can own.
+* Setting limits to how many bytes a description can be.
 
 We will introduce these to the `trait Config` for our Pallet.
 
 To do this, this we use a few different tools:
 
-* `Currency`: A trait that describes an interface to access and manipulate user balances. Also gives you access to the `Balance` type.
-* `Get<u32>`: A trait which simply fetches a `u32` value, allowing the user to configure the `MaxKittiesOwned`.
+* `Get<u32>`: A trait which simply fetches a `u32` value, allowing the user to configure the `MaxPoapOwned`.
 * `Randomness`: A trait which describes an interface to access an on-chain random value.
 
 We will use these interfaces in the future, but a sneak peak to how you might actually see these used in the code:
 
 ```rust
-// Make a balance transfer.
-T::Currency::transfer(from, to, amount, ExistenceRequirement::KeepAlive)?;
+// Get some on-chain randomness.
+let (seed, _) = T::Randomness::random(subject);
 
-// Get the `MaxKittiesOwned` limit.
-let max_kitties: u32 = T::MaxKittiesOwned::get();
+// Get the `MaxPoapOwned` limit.
+let poap_owned_limit: u32 = T::MaxPoapOwned::get();
 
-// Get a random value.
-let random_value = T::KittyRandomness::random(&[]).0;
 ```
 
 <!-- slide:break -->
@@ -33,10 +30,10 @@ let random_value = T::KittyRandomness::random(&[]).0;
 
 #### ** ACTION ITEMS **
 
-Import the `Currency` and `Randomness` traits to your project:
+Import the `Randomness` trait to your project:
 
 ```rust
-use frame_support::traits::{Currency, Randomness};
+use frame_support::traits::{Randomness};
 ```
 
 Then, update your `trait Config` to have the following:
@@ -48,15 +45,12 @@ pub trait Config: frame_system::Config {
 	/// Because this pallet emits events, it depends on the runtime's definition of an event.
 	type Event: From<Event<Self>> + IsType<<Self as frame_system::Config>::Event>;
 
-	/// The Currency handler for the kitties pallet.
-	type Currency: Currency<Self::AccountId>;
+	/// Something that provides randomness in the runtime.
+	type Randomness: Randomness<Self::Hash, Self::BlockNumber>;
 
-	/// The maximum amount of kitties a single account can own.
+	/// The maximum amount of POAP NFTs a single account can own.
 	#[pallet::constant]
-	type MaxKittiesOwned: Get<u32>;
-
-	/// The type of Randomness we want to specify for this pallet.
-	type KittyRandomness: Randomness<Self::Hash, Self::BlockNumber>;
+	type MaxPoapOwned: Get<u32>;
 }
 ```
 
@@ -77,51 +71,48 @@ pub use pallet::*;
 
 #[frame_support::pallet]
 pub mod pallet {
-	use frame_support::pallet_prelude::*;
-	use frame_system::pallet_prelude::*;
+    use frame_support::pallet_prelude::*;
+    use frame_system::pallet_prelude::*;
 
-	use frame_support::traits::{Currency, Randomness};
+    use frame_support::traits::{Currency};
 
-	// The struct on which we build all of our Pallet logic.
-	#[pallet::pallet]
-	pub struct Pallet<T>(_);
+    // The struct on which we build all of our Pallet logic.
+    #[pallet::pallet]
+    pub struct Pallet<T>(_);
 
-	/* Placeholder for defining custom types. */
+    /* Placeholder for defining custom types. */
 
-	/* Placeholder for defining custom storage items. */
+    /* Placeholder for defining custom storage items. */
 
-	// Your Pallet's configuration trait, representing custom external types and interfaces.
-	#[pallet::config]
-	pub trait Config: frame_system::Config {
-		/// Because this pallet emits events, it depends on the runtime's definition of an event.
-		type Event: From<Event<Self>> + IsType<<Self as frame_system::Config>::Event>;
+    // Your Pallet's configuration trait, representing custom external types and interfaces.
+    #[pallet::config]
+    pub trait Config: frame_system::Config {
+        /// Because this pallet emits events, it depends on the runtime's definition of an event.
+        type Event: From<Event<Self>> + IsType<<Self as frame_system::Config>::Event>;
 
-		/// The Currency handler for the kitties pallet.
-		type Currency: Currency<Self::AccountId>;
+		/// Something that provides randomness in the runtime.
+		type Randomness: Randomness<Self::Hash, Self::BlockNumber>;
 
-		/// The maximum amount of kitties a single account can own.
-		#[pallet::constant]
-		type MaxKittiesOwned: Get<u32>;
+        /// The maximum amount of POAP NFTs a single account can own.
+        #[pallet::constant]
+        type MaxPoapOwned: Get<u32>;
+    }
 
-		/// The type of Randomness we want to specify for this pallet.
-		type KittyRandomness: Randomness<Self::Hash, Self::BlockNumber>;
-	}
+    // Your Pallet's events.
+    #[pallet::event]
+    #[pallet::generate_deposit(pub(super) fn deposit_event)]
+    pub enum Event<T: Config> {}
 
-	// Your Pallet's events.
-	#[pallet::event]
-	#[pallet::generate_deposit(pub(super) fn deposit_event)]
-	pub enum Event<T: Config> {}
+    // Your Pallet's error messages.
+    #[pallet::error]
+    pub enum Error<T> {}
 
-	// Your Pallet's error messages.
-	#[pallet::error]
-	pub enum Error<T> {}
+    // Your Pallet's callable functions.
+    #[pallet::call]
+    impl<T: Config> Pallet<T> {}
 
-	// Your Pallet's callable functions.
-	#[pallet::call]
-	impl<T: Config> Pallet<T> {}
-
-	// Your Pallet's internal functions.
-	impl<T: Config> Pallet<T> {}
+    // Your Pallet's internal functions.
+    impl<T: Config> Pallet<T> {}
 }
 ```
 

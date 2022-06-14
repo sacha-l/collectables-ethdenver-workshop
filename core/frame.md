@@ -9,7 +9,9 @@ Two key libraries that make it possible to write a pallet using FRAME are:
 * [`frame_system`](https://docs.substrate.io/rustdocs/latest/frame_system/index.html): provides all core system functionalities for integrating a pallet into a runtime and enabling pallets to interact with eachother.
 * [`frame_support`](https://docs.substrate.io/rustdocs/latest/frame_support/index.html): provides a pallet with a way to create dispatchable calls, storage capabilities, events and errors and [core utilities](https://docs.substrate.io/rustdocs/latest/frame_support/traits/index.html#).
 
-As runtime engineers, a pallet provides you a way to:
+<!-- slide:break-40 -->
+
+As runtime engineers, a pallet provides you with a way to:
 
 * Specify storage items for your blockchain
 * Specify some callable functions for your blockchain
@@ -19,11 +21,7 @@ As runtime engineers, a pallet provides you a way to:
 
 This gives you a lot of flexibility for the logic you're writing, but this means you have a lot of responsibility for carefully handling errors.
 
-<!-- slide:break-40 -->
-
-![runtime](../assets/runtime.png)
-
-Important concepts:
+💡 **Important concepts:**
 
 * Weights
 * Verify first, write last

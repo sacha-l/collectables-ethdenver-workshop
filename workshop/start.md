@@ -19,4 +19,10 @@ If you have any questions, please let us know and take advantage of the [notes s
 
 <!-- slide:break -->
 
-![Kitty](../assets/kitty3.png)
+What we'll be creating...
+
+* A simple pallet implementation of the Proof of Attendance protocol
+1. Event organizer can mint collection for an event
+1. Attendees can claim it
+
+![WAD](../assets/example.png)

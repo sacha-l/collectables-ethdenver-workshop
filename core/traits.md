@@ -12,8 +12,6 @@ trait Opposite {
 enum Direction {
 	Up,
 	Down,
-	Left,
-	Right,
 }
 
 impl Opposite for Direction {
@@ -21,8 +19,6 @@ impl Opposite for Direction {
         match self {
             Direction::Up => Direction::Down,
             Direction::Down => Direction::Up,
-            Direction::Left => Direction::Right,
-            Direction::Right => Direction::Left,
         }
     }
 }
@@ -31,7 +27,7 @@ impl Opposite for Direction {
 With this trait implemented, we can do things like:
 
 ```rust
-assert!(Direction::Left.opposite() == Direction::Right)
+assert!(Direction::Down.opposite() == Direction::Up)
 ```
 
 <!-- slide:break -->
@@ -40,16 +36,14 @@ assert!(Direction::Left.opposite() == Direction::Right)
 
 You can also define custom traits, and associate things like type definitions, which themselves have traits.
 
-Every Pallet in Substrate has a `trait Config`, which allows you to define the types and interfaces that your Pallet depends on.
+> Every Pallet in Substrate has a `trait Config`, which allows you to define the types and interfaces that your Pallet depends on.
 
-This trait always inherits from the `frame_system::Config` which defines all the core types in your runtime, like:
+> 👂 This trait always inherits from the `frame_system::Config` which defines all the core types in your runtime, like:
+> * `T::AccountId`: The type representing a user address.
+> * `T::BlockNumber`: The type representing a block number.
+> * etc...
 
-* `T::AccountId`: The type representing a user address.
-* `T::BlockNumber`: The type representing a block number.
-* etc...
-
-These traits allows your runtime to be **generic**, which means that you can easily change the fundamental types in your blockchain, and things will still work.
-
+💡 These traits allows your runtime to be **generic**, which means that you can easily change the fundamental types in your blockchain, and things will still work.
 
 Here is a hint as to what you might see later in the tutorial, but practically speaking, this is a pretty advanced concept, so mostly take it for granted.
 
@@ -59,14 +53,11 @@ pub trait Config: frame_system::Config {
 	// The type used across your runtime for emitting events.
 	type Event: From<Event<Self>> + IsType<<Self as frame_system::Config>::Event>;
 
-	// The interface used to manage user balances from this pallet.
-	type Currency: Currency<Self::AccountId>;
-
 	// A configurable max value,
 	#[pallet::constant]
-	type MaxValue: Get<u32>;
+	type SomeMaxValue: Get<u32>;
 
 	// The interface used to get random values to use in this pallet.
-	type RandomnessProvider: Randomness<Self::Hash, Self::BlockNumber>;
+	type ChainRandomnessProvider: Randomness<Self::Hash, Self::BlockNumber>;
 }
 ```

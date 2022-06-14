@@ -1,6 +1,6 @@
 # Runtime Storage
 
-Blockchains are all about storing data that you want to come to consensus about.
+> 💪 Blockchains are all about storing data that you want to come to consensus about.
 
 If you are familiar with contract development, the storage types below should be very familiar to you:
 

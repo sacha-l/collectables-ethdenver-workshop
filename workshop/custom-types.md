@@ -2,19 +2,16 @@
 
 We already gave you a sneak peak at defining and using custom types in Substrate.
 
-For our Pallet, we will define an `enum Gender` and a `struct Kitty`.
+For our Pallet, we will define two structs:
+1. One to define some collection for an event, we'll call `sruct PoapEvent`.
+2. Another to define some NFT from a collection, we'll call `struct PoapNft`.
 
-We will also "import" the `Balance` type into our Pallet, and make it easier to access.
+Note that we take advantage of the `#[derive]` macro to implement all the different traits the Pallet expects from these custom types, just as we explained earlier. 
+If you don't include these, the Rust compiler will start yelling at you as soon as you try to use these custom types. 😱
 
-Inside of the `Kitty` struct, we have a unique identifier `dna` which we will use to ensure that each kitty is totally a unique in our blockchain. We will also use this DNA as the seed for generating unique attributes about our kitty!
+Check your code against the solution and let's move on to adding storage items for our POAP collectables!
 
-![Kitty!](../assets/cat-avatar.png)
-
-We also store the `price` of a Kitty with an `Option`. An `Option` can be `Some(value)` or `None`. If the value is `None`, then we will assume the kitty is not for sale.
-
-Finally, note that we take advantage of the `#[derive]` macro to implement all the different traits the Pallet expects from these custom types, just as we explained earlier. If you don't include these, the Rust compiler will start yelling at you as soon as you try to use these custom types.
-
-Check your code against the solution and let's move on to adding storage items for our kitties!
+![Types](../assets/type-screenshot.png)
 
 <!-- slide:break-40 -->
 
@@ -25,27 +22,33 @@ Check your code against the solution and let's move on to adding storage items f
 Add the following custom types to your Pallet.
 
 ```rust
-// Allows easy access our Pallet's `Balance` type. Comes from `Currency` interface.
-type BalanceOf<T> =
-	<<T as Config>::Currency as Currency<<T as frame_system::Config>::AccountId>>::Balance;
-
-// The Gender type used in the `Kitty` struct
-#[derive(Clone, Encode, Decode, PartialEq, Copy, RuntimeDebug, TypeInfo, MaxEncodedLen)]
-pub enum Gender {
-	Male,
-	Female,
+// Struct for holding POAP Collection details (by admin)
+#[derive(Clone, Encode, Decode, PartialEq, RuntimeDebug, TypeInfo, MaxEncodedLen)]
+#[scale_info(skip_type_params(T))]
+#[codec(mel_bound())]
+pub struct PoapEvent<T: Config> {
+	// Using 16 bytes to represent a unique ID
+	pub collection_id: [u8; 16],
+	// Vec<u8> to hold a short description
+	pub description: BoundedVec<u8, T::StringLimit>,
+	// Amount originally created
+	pub total_created: u32,
+	// Amount of NFTs left in this collection
+	pub amount_claimable: u32,
+	// Creator of the collection
+	pub creator: T::AccountId,
 }
 
-// Struct for holding kitty information
+// Struct for holding POAP NFT details
 #[derive(Clone, Encode, Decode, PartialEq, RuntimeDebug, TypeInfo, MaxEncodedLen, Copy)]
 #[scale_info(skip_type_params(T))]
-pub struct Kitty<T: Config> {
-	// Using 16 bytes to represent a kitty DNA
-	pub dna: [u8; 16],
-	// `None` assumes not for sale
-	pub price: Option<BalanceOf<T>>,
-	pub gender: Gender,
+pub struct PoapNft<T: Config> {
+	// Using 16 bytes to represent the unique collection ID
+	pub collection_id: [u8; 16],
+	// Owner of POAP NFT
 	pub owner: T::AccountId,
+	// Item number of the NFT in the collection
+	pub item_number: u32,
 }
 ```
 
@@ -71,31 +74,37 @@ pub mod pallet {
 
 	use frame_support::traits::{Currency, Randomness};
 
-	// The basis which we buil
+	// The basis required for building this pallet
 	#[pallet::pallet]
 	pub struct Pallet<T>(_);
 
-	// Allows easy access our Pallet's `Balance` type. Comes from `Currency` interface.
-	type BalanceOf<T> =
-		<<T as Config>::Currency as Currency<<T as frame_system::Config>::AccountId>>::Balance;
-
-	// The Gender type used in the `Kitty` struct
-	#[derive(Clone, Encode, Decode, PartialEq, Copy, RuntimeDebug, TypeInfo, MaxEncodedLen)]
-	pub enum Gender {
-		Male,
-		Female,
+	// Struct for holding POAP Collection details (by admin)
+	#[derive(Clone, Encode, Decode, PartialEq, RuntimeDebug, TypeInfo, MaxEncodedLen)]
+	#[scale_info(skip_type_params(T))]
+	#[codec(mel_bound())]
+	pub struct PoapEvent<T: Config> {
+		// Using 16 bytes to represent a unique ID
+		pub collection_id: [u8; 16],
+		// Vec<u8> to hold a short description
+		pub description: BoundedVec<u8, T::StringLimit>,
+		// Amount originally created
+		pub total_created: u32,
+		// Amount of NFTs left in this collection
+		pub amount_claimable: u32,
+		// Creator of the collection
+		pub creator: T::AccountId,
 	}
 
-	// Struct for holding kitty information
+	// Struct for holding POAP NFT details
 	#[derive(Clone, Encode, Decode, PartialEq, RuntimeDebug, TypeInfo, MaxEncodedLen, Copy)]
 	#[scale_info(skip_type_params(T))]
-	pub struct Kitty<T: Config> {
-		// Using 16 bytes to represent a kitty DNA
-		pub dna: [u8; 16],
-		// `None` assumes not for sale
-		pub price: Option<BalanceOf<T>>,
-		pub gender: Gender,
+	pub struct PoapNft<T: Config> {
+		// Using 16 bytes to represent the unique collection ID
+		pub collection_id: [u8; 16],
+		// Owner of POAP NFT
 		pub owner: T::AccountId,
+		// Item number of the NFT in the collection
+		pub item_number: u32,
 	}
 
 	/* Placeholder for defining custom storage items. */
@@ -106,15 +115,12 @@ pub mod pallet {
 		/// Because this pallet emits events, it depends on the runtime's definition of an event.
 		type Event: From<Event<Self>> + IsType<<Self as frame_system::Config>::Event>;
 
-		/// The Currency handler for the kitties pallet.
-		type Currency: Currency<Self::AccountId>;
+		/// Something that provides randomness in the runtime.
+		type Randomness: Randomness<Self::Hash, Self::BlockNumber>;
 
-		/// The maximum amount of kitties a single account can own.
+		/// The maximum amount of POAP NFTs a single account can own.
 		#[pallet::constant]
-		type MaxKittiesOwned: Get<u32>;
-
-		/// The type of Randomness we want to specify for this pallet.
-		type KittyRandomness: Randomness<Self::Hash, Self::BlockNumber>;
+		type MaxPoapOwned: Get<u32>;
 	}
 
 	// Your Pallet's events.
@@ -134,5 +140,4 @@ pub mod pallet {
 	impl<T: Config> Pallet<T> {}
 }
 ```
-
 <!-- tabs:end -->

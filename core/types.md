@@ -10,8 +10,6 @@ An `enum` allows you to create a type where can enumerate the possible variants.
 pub enum Direction {
 	Up,
 	Down,
-	Left,
-	Right,
 }
 ```
 
