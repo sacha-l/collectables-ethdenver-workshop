@@ -24,4 +24,4 @@ cargo build --release
 
 Congratulations for completing this workshop with us! 🥳
 
-Curious how you could write tests for your pallets? You can check the solution code of the PoapNfts pallet [here]() which includes tests that you can run using `cargo test -p pallet-template`.
+Curious how you could write tests for your pallets? You can check the solution code of the PoapNfts pallet [here](https://github.com/sacha-l/substrate-node-template/tree/sl/wad22-workshop-solution/pallets/template) which includes tests that you can run using `cargo test -p pallet-template`.
