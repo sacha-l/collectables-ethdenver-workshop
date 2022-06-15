@@ -1,6 +1,9 @@
 
 # Welcome to the Substrate Workshop
 
+**Details:** June 15, 2022, 2-4PM (Workshop room M2)
+
+
 > This workshop was created for the We Are Developers (Berlin, June 2022) conference and is primarily based on Substrate's [Kitties tutorial](https://docs.substrate.io/tutorials/v3/kitties/pt1/).
 
 In this workshop, you'll learn how to build a custom Substrate blockchain that can mint **Proof of Attendance NFTs**.
@@ -20,13 +23,16 @@ In this workshop, you'll learn how to build a custom Substrate blockchain that c
 We have a lot to cover.
 So let's get right to it!
 
-<!-- slide:break -->
-
-<img src="assets/wadwc2022-logo.png" alt="qr-code" width="500"/>
-
 To follow along for this workshop, you'll need **follow the [setup instructions](https://docs.substrate.io/tutorials/v3/create-your-first-substrate-chain/#install-required-packages)** to:
 
 - Set up you developer environment with Rust
 - Compile a copy of [Substrate's Node Template](https://github.com/substrate-developer-hub/substrate-node-template)
 
-**Acknowledgements:** thank you to Shawn for the original tutorial, inspired by the [crypto zombies tutorial](https://cryptozombies.io/en/lesson/1/chapter/1).
+<!-- slide:break -->
+
+![QR Code](assets/workshop-qr-code.png)
+
+<img src="assets/wadwc2022-logo.png" alt="logo" width="500"/>
+
+
+[Example of the UX for a POAP dapp](https://poap.gallery/)

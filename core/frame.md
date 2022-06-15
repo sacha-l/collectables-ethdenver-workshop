@@ -6,8 +6,8 @@ Each [pallet](https://docs.substrate.io/v3/runtime/frame/#pallets) alone provide
 Pallets are written in [FRAME](https://docs.substrate.io/v3/runtime/frame/), Substrate's opiniated framework for writing runtimes.
 Two key libraries that make it possible to write a pallet using FRAME are:
 
-* [`frame_system`](https://docs.substrate.io/rustdocs/latest/frame_system/index.html): provides all core system functionalities for integrating a pallet into a runtime and enabling pallets to interact with eachother.
-* [`frame_support`](https://docs.substrate.io/rustdocs/latest/frame_support/index.html): provides a pallet with a way to create dispatchable calls, storage capabilities, events and errors and [core utilities](https://docs.substrate.io/rustdocs/latest/frame_support/traits/index.html#).
+* [`frame_system`](https://paritytech.github.io/substrate/master/frame_system/index.html): provides all core system functionalities for integrating a pallet into a runtime and enabling pallets to interact with each other.
+* [`frame_support`](https://paritytech.github.io/substrate/master/frame_support/index.html): provides a pallet with a way to create dispatchable calls, storage capabilities, events and errors and [core utilities](https://paritytech.github.io/substrate/master/frame_support/traits/index.html).
 
 <!-- slide:break-40 -->
 

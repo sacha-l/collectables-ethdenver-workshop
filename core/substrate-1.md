@@ -16,3 +16,7 @@ Substrate provides all of the heavy lifting blockchain components out of the box
 <!-- slide:break-40 -->
 
 ![substrate](../assets/substrate-logo.png)
+
+Further reading:
+
+* [What is Substrate?](https://www.shawntabrizi.com/substrate/what-is-substrate/) (blog by core developer at Parity Technologies)
