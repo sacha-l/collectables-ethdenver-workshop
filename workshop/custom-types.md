@@ -3,7 +3,7 @@
 We already gave you a sneak peak at defining and using custom types in Substrate.
 
 For our Pallet, we will define two structs:
-1. One to define some collection for an event, we'll call `sruct PoapEvent`.
+1. One to define some collection for an event, we'll call `struct PoapEvent`.
 2. Another to define some NFT from a collection, we'll call `struct PoapNft`.
 
 Note that we take advantage of the `#[derive]` macro to implement all the different traits the Pallet expects from these custom types, just as we explained earlier. 
@@ -121,6 +121,10 @@ pub mod pallet {
 		/// The maximum amount of POAP NFTs a single account can own.
 		#[pallet::constant]
 		type MaxPoapOwned: Get<u32>;
+
+		/// The maximum length for a description stored on-chain.
+		#[pallet::constant]
+		type StringLimit: Get<u32>;
 	}
 
 	// Your Pallet's events.

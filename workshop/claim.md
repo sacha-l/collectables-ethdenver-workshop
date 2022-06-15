@@ -237,7 +237,7 @@ pub mod pallet {
 		#[pallet::constant]
 		type MaxPoapOwned: Get<u32>;
 
-		/// The maximum length of a name or symbol stored on-chain.
+		/// The maximum length for a description stored on-chain.
 		#[pallet::constant]
 		type StringLimit: Get<u32>;
 	}

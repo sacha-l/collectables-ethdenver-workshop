@@ -51,6 +51,10 @@ pub trait Config: frame_system::Config {
 	/// The maximum amount of POAP NFTs a single account can own.
 	#[pallet::constant]
 	type MaxPoapOwned: Get<u32>;
+
+    /// The maximum length for a description stored on-chain.
+    #[pallet::constant]
+    type StringLimit: Get<u32>;
 }
 ```
 
@@ -74,7 +78,7 @@ pub mod pallet {
     use frame_support::pallet_prelude::*;
     use frame_system::pallet_prelude::*;
 
-    use frame_support::traits::{Currency};
+    use frame_support::traits::{Randomness};
 
     // The struct on which we build all of our Pallet logic.
     #[pallet::pallet]
