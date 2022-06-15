@@ -25,4 +25,6 @@ What we'll be creating...
 1. Event organizer can mint collection for an event
 1. Attendees can claim it
 
+This implementation is based on the [ERC721 standard](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC721).
+
 ![WAD](../assets/example.png)
