@@ -209,8 +209,9 @@ pub use pallet::*;
 pub mod pallet {
 	use frame_support::pallet_prelude::*;
 	use frame_system::pallet_prelude::*;
+	use sp_io::hashing::blake2_128;
 
-	use frame_support::traits::{Currency, Randomness};
+	use frame_support::traits::{Randomness};
 
 	// The basis required for building this pallet
 	#[pallet::pallet]
@@ -276,6 +277,8 @@ pub mod pallet {
 		/// The maximum amount of POAP NFTs a single account can own.
 		#[pallet::constant]
 		type MaxPoapOwned: Get<u32>;
+
+		////////
 	}
 
 	// Your Pallet's events.
@@ -283,7 +286,7 @@ pub mod pallet {
 	#[pallet::generate_deposit(pub(super) fn deposit_event)]
 	pub enum Event<T: Config> {
 		/// A new kitty was successfully created.
-		Created { kitty: [u8; 16], owner: T::AccountId },
+		Created { collection_id: [u8; 16], owner: T::AccountId },
 	}
 
 	// Your Pallet's error messages.

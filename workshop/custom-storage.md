@@ -127,6 +127,10 @@ pub mod pallet {
 		/// The maximum amount of POAP NFTs a single account can own.
 		#[pallet::constant]
 		type MaxPoapOwned: Get<u32>;
+
+		/// The maximum length for a description stored on-chain.
+		#[pallet::constant]
+		type StringLimit: Get<u32>;
 	}
 
 	// Your Pallet's events.
