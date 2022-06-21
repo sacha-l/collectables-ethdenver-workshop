@@ -61,7 +61,7 @@ pub mod pallet {
 	use frame_support::pallet_prelude::*;
 	use frame_system::pallet_prelude::*;
 
-	use frame_support::traits::{Currency, Randomness};
+	use frame_support::traits::{Randomness};
 
 	// The basis required for building this pallet
 	#[pallet::pallet]
