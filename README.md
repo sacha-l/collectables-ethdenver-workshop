@@ -1,5 +1,5 @@
 
-# Welcome to ETH Denver Substrate Collectables Workshop!
+# Welcome to Substrate Collectables Workshop!
 
 **Workshop link:** [here](https://sacha-l.github.io/substrate-collectables-workshop/#/workshop/start).
 
