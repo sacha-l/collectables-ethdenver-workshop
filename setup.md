@@ -2,7 +2,7 @@
 
 1. Make sure you already have Rust build environment setup on your computer:
 
-	https://docs.substrate.io/v3/getting-started/installation/
+	https://docs.substrate.io/install/
 
 	If you don't... probably best to just watch along.
 
