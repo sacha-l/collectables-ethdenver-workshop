@@ -57,7 +57,7 @@ Here is a hint as to what you might see later in the tutorial, but practically s
 #[pallet::config]
 pub trait Config: frame_system::Config {
 	// The type used across your runtime for emitting events.
-	type Event: From<Event<Self>> + IsType<<Self as frame_system::Config>::Event>;
+	type RuntimeEvent: From<Event<Self>> + IsType<<Self as frame_system::Config>::RuntimeEvent>;
 
 	// The interface used to manage user balances from this pallet.
 	type Currency: Currency<Self::AccountId>;
