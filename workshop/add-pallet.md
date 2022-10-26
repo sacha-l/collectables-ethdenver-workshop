@@ -30,7 +30,7 @@ Let's try it out next!
 
 ```rust
 impl pallet_template::Config for Runtime {
-	type Event = Event;
+	type RuntimeEvent = RuntimeEvent;
 	type Currency = Balances;
 	type KittyRandomness = RandomnessCollectiveFlip;
 	type MaxKittiesOwned = frame_support::pallet_prelude::ConstU32<100>;

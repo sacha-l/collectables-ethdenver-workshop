@@ -11,7 +11,7 @@ Implement your pallet for the runtime:
 
 ```rust
 impl pallet_template::Config for Runtime {
-	type Event = Event;
+	type RuntimeEvent = RuntimeEvent;
 	type Currency = Balances;
 	type KittyRandomness = RandomnessCollectiveFlip;
 	type MaxKittiesOwned = ConstU32<100>;
