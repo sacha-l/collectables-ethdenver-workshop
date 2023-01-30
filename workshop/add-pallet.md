@@ -55,7 +55,7 @@ construct_runtime!(
 		Balances: pallet_balances,
 		TransactionPayment: pallet_transaction_payment,
 		Sudo: pallet_sudo,
-		SubstrateKitties: pallet_template, // <-- Update name here
+		SubstrateKitties: pallet_template::{Pallet, Call, Storage, Event<T>}, // <-- Update name here
 	}
 );
 ```
