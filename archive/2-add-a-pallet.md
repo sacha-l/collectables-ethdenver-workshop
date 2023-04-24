@@ -25,13 +25,13 @@ The `construct_runtime` macro compiles externally published pallets to generates
 These are the pallets in the runtime of our node template:
 
 * 🛠 `System: frame_system`: core system level functionality.
-* 🎲 `RandomnessCollectiveFlip: pallet_randomness_collective_flip`: provides on-chain pseudo-randomness.
-* ⌚️ `Timestamp: pallet_timestamp`: provides on-chain timestamping utilities.
+* 🎲 `RandomnessCollectiveFlip: pallet_insecure_randomness_collective_flip`: provides on-chain pseudo-randomness. Note that this **does not provide a secure source randomness** for truly adversarial environments. It provides low-influence random values based on the block hashes from the previous 81 blocks.
+* ⌚️ `Timestamp: pallet_timestamp`: provides on-chain time stamping utilities.
 * 👮 `Aura: pallet_aura`: proof of authority consensus.
 * 👴 `Grandpa: pallet_grandpa`: block finalization utility.
 * 💰 `Balances: pallet_balances`: the underlying currency system for our chain.
 * 💳 `TransactionPayment: pallet_transaction_payment`: transaction fee system.
-* 🕹 `Sudo: pallet_sudo`: most basic on-chain goverance.
+* 🕹 `Sudo: pallet_sudo`: most basic on-chain governance.
 * 📄 `TemplateModule: pallet_template`: an dummy pallet to make it easy to start hacking with.
 
 
